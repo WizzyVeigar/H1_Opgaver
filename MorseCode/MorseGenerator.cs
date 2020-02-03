@@ -41,11 +41,12 @@ namespace MorseCode
             MorseLetter letterV = new MorseLetter("...-", "V");   
             MorseLetter letterW = new MorseLetter(".--", "W");   
             MorseLetter letterX = new MorseLetter("-..-", "X");   
-            MorseLetter letterY = new MorseLetter("-.--", "Y");   
+            MorseLetter letterY = new MorseLetter("-.--", "Y"); 
             MorseLetter letterZ = new MorseLetter("--..", "Z");   
             MorseLetter letterÆ = new MorseLetter(".-.-", "Æ");   
             MorseLetter letterØ = new MorseLetter("---.", "Ø");   
-            MorseLetter letterÅ = new MorseLetter(".--.-", "Å");   
+            MorseLetter letterÅ = new MorseLetter(".--.-", "Å");
+            
         }
     }
 }
