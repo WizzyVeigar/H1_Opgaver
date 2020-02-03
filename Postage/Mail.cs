@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace Postage
 {
+    //Types of packages
+    public enum PackageType
+    {
+        Letter,
+        Package
+    }
+
+    public enum CountryName
+    {
+        Denmark,
+        England,
+        USA
+    }
+
     class Mail
     {
-        //Types of packages
-        public enum PackageType
-        {
-            Letter,
-            Package
-        }
         private PackageType type;
 
         public PackageType Type

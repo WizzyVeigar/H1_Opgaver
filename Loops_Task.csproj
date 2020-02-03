@@ -44,20 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BritishPoundCalculator.cs" />
-    <Compile Include="Calculator.cs" />
-    <Compile Include="DollarCalculator.cs" />
-    <Compile Include="Loops_Task.cs" />
+    <Compile Include="Loops.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SwedishCrownCalculator.cs" />
-    <Compile Include="ValutaOmregner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Betingelser\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

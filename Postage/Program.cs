@@ -10,9 +10,9 @@ namespace Postage
     {
         static void Main(string[] args)
         {
-            Mail mail = new Mail(40, 30, 100, Mail.PackageType.Letter);
+            Mail mail = new Mail(40, 30, 100, PackageType.Letter);
             PriceCalculator priceCalculator = new PriceCalculator();
-            Console.WriteLine(priceCalculator.CalculatePrice(mail, Country.CountryName.Denmark));
+            Console.WriteLine(priceCalculator.CalculatePrice(mail, CountryName.Denmark));
             Console.ReadLine();
         }
     }

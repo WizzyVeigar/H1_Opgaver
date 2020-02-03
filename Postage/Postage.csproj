@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Country.cs" />
     <Compile Include="Mail.cs" />
     <Compile Include="PriceCalculator.cs" />
     <Compile Include="Program.cs" />

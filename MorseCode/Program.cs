@@ -10,9 +10,12 @@ namespace MorseCode
     {
         static void Main(string[] args)
         {
-            MorseGenerator morseGenerator = new MorseGenerator();
+            MorseAlphabet morseAlphabet = new MorseAlphabet();
+            
+
             Console.WriteLine("Write what you want converted: ");
-            morseGenerator.GenerateMorse(Console.ReadLine());
+            Console.WriteLine(morseAlphabet.TranslateToMorseCode(Console.ReadLine()));
+            Console.ReadKey();
         }
     }
 }

@@ -4,15 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace H1_Opgaver
+namespace Loops_Task
 {
     class Program
     {
-        static void Main(string[] args)
-        {           
-            Loops_Task loops_Task = new Loops_Task();
-            Console.WriteLine(loops_Task.LoopTo99ButWriteUntil50());
-            Console.ReadKey();
+        public static void Main(string[] args)
+        {
+            Loops loops = new Loops();
+
+            loops.loopEvent += Loops_loopEvent;
+
+            loops.FromZeroToHundred();
+
+        }
+
+        private static void Loops_loopEvent(int value)
+        {
+            Console.WriteLine(value);
         }
     }
 
