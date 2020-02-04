@@ -11,10 +11,15 @@ namespace Loops_Task
         public static void Main(string[] args)
         {
             Loops loops = new Loops();
-
             loops.loopEvent += Loops_loopEvent;
 
+
             loops.FromZeroToHundred();
+            loops.WhileZeroToHundred();
+            loops.CountingDownZeroToHundred();
+
+
+            Console.ReadKey();
 
         }
 
@@ -22,6 +27,8 @@ namespace Loops_Task
         {
             Console.WriteLine(value);
         }
+
+        
     }
 
 

@@ -22,6 +22,22 @@ namespace Loops_Task
             }
         }
 
-        public void WhileZeroToHundred
+        public void WhileZeroToHundred()
+        {
+            int i = 0;
+            while (i <= 99)
+            {
+                loopEvent(i);
+                i++;
+            }
+        }
+
+        public void CountingDownZeroToHundred()
+        {
+            for (int i = 100; i > 0; i--)
+            {
+                loopEvent(i);
+            }
+        }
     }
 }
