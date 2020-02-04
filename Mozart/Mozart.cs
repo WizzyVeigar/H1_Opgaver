@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,6 @@ namespace Mozart
     class Mozart : Person, IPianist
     {
         string[] vals;
-
-        public Mozart(string name) : base(name)
-        {
-            vals = new string[miniuetteArr.GetLength(0) + TrioArr.GetLength(0)];
-        }
-
         string[,] miniuetteArr = new string[16, 11]
         {
             { "96","32","69","40","148","104","152","119","98","3","54" },
@@ -53,38 +48,50 @@ namespace Mozart
             { "19","47","90","33","50","78"},
             { "66","88","21","10","91","31"}
         };
-                     
+
+
+        public Mozart(string name) : base(name)
+        {
+            vals = new string[miniuetteArr.GetLength(0) + TrioArr.GetLength(0)];
+        }
+
+
         public void MakeNewSong()
         {
             Random rnd = new Random();
-
             vals = new string[miniuetteArr.GetLength(0) + TrioArr.GetLength(0)];
+
 
             for (int i = 0; i < miniuetteArr.GetLength(0); i++)
             {
-
                 vals[i] = miniuetteArr[i, rnd.Next(0, miniuetteArr.GetLength(1))];
-                Console.WriteLine(vals[i]);
             }
-            Console.ReadKey();
 
-            //for Trio
             for (int i = 0; i < TrioArr.GetLength(0); i++)
             {
-
                 vals[i] = TrioArr[i, rnd.Next(0, TrioArr.GetLength(1))];
-                Console.WriteLine(vals[i]);
             }
-
-            Console.ReadKey();
         }
-        
+
         //sends the audio files to the piano to play
         public void Play(Piano piano)
         {
-            foreach (string songNumber in vals)
+            string songPath;
+
+            for (int i = 0; i < vals.Length; i++)
             {
-                piano.PlayMusic(songNumber);
+                //Run Miniuette
+                if (i < 16)
+                {
+                    songPath = @"C:\Users\seje_\Source\Repos\WizzyVeigar\H1_Opgaver\Mozart\SoundsFiles\M\M" + vals[i] + ".wav";
+                    piano.PlayMusic(songPath);
+                }
+                //Run Trio
+                else
+                {
+                    songPath = Path.GetFullPath(@"C:\Users\seje_\Source\Repos\WizzyVeigar\H1_Opgaver\Mozart\SoundsFiles\T\T" + vals[i] + ".wav");
+                    piano.PlayMusic(songPath);
+                }
             }
         }
     }
