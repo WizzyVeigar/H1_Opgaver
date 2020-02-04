@@ -16,8 +16,7 @@ namespace Mozart
         {
                 soundPlayer.SoundLocation = song;
                 soundPlayer.Load();
-                soundPlayer.PlaySync();
-         
+                soundPlayer.PlaySync();         
         }
     }
 }

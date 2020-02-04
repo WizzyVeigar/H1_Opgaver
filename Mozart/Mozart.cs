@@ -83,13 +83,13 @@ namespace Mozart
                 //Run Miniuette
                 if (i < 16)
                 {
-                    songPath = @"C:\Users\seje_\Source\Repos\WizzyVeigar\H1_Opgaver\Mozart\SoundsFiles\M\M" + vals[i] + ".wav";
+                    songPath = Directory.GetCurrentDirectory() + @"\SoundsFiles\M\M" + vals[i] + ".wav";
                     piano.PlayMusic(songPath);
                 }
                 //Run Trio
                 else
                 {
-                    songPath = Path.GetFullPath(@"C:\Users\seje_\Source\Repos\WizzyVeigar\H1_Opgaver\Mozart\SoundsFiles\T\T" + vals[i] + ".wav");
+                    songPath = Directory.GetCurrentDirectory() + @"C:\Users\seje_\Source\Repos\WizzyVeigar\H1_Opgaver\Mozart\SoundsFiles\T\T" + vals[i] + ".wav";
                     piano.PlayMusic(songPath);
                 }
             }
