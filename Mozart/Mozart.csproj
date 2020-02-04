@@ -50,7 +50,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SoundsFiles\" />
+    <Folder Include="SoundsFiles\M\" />
+    <Folder Include="SoundsFiles\T\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
