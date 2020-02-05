@@ -17,11 +17,21 @@ namespace Methods_Files
             set { path = @".\"; }
         }
 
+        /// <summary>
+        /// Creates a file from a specified path
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="data"></param>
         public void CreateNewFile(string fileName, string data)
         {
             File.WriteAllText(fileName + ".txt", data);
         }
 
+        /// <summary>
+        /// Deletes a file from a specified path
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns></returns>
         public bool DeleteFile(string Path)
         {
             if (File.Exists(path))
@@ -33,11 +43,39 @@ namespace Methods_Files
                 return false;
         }
 
+        /// <summary>
+        /// Reads the content of a specified file 
+        //How to make this idiotproof?
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns></returns>
         public string ReadFile(string Path)
         {
-            return File.ReadAllText(path + ".txt");
+            return File.ReadAllText(Directory.GetCurrentDirectory() + path);
         }
 
+        /// <summary>
+        /// Creates a directory at /bin/debug plus the specified path
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        internal bool CreateDirectory(string data)
+        {
+            //Probably should not write GetCurrentDirectory twice
+            if (!Directory.Exists(Directory.GetCurrentDirectory() + data))
+            {
+                Directory.CreateDirectory(Directory.GetCurrentDirectory() + data);
+                return true;
+            }
+            else
+                return false;
+
+        }
+
+        /// <summary>
+        /// Reads all files in /bin/debug
+        /// </summary>
+        /// <returns>returns all found files</returns>
         public List<string> ReadFilesInDirectory()
         {
             List<string> files = new List<string>();

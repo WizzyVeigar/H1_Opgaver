@@ -8,7 +8,6 @@ namespace Methods_Files
 {
     class IOController
     {
-
         FileManager fileManager = new FileManager();
 
         internal void CreateFile(string fileName, string data)
@@ -30,9 +29,12 @@ namespace Methods_Files
             return fileManager.ReadFilesInDirectory();
         }
 
-        internal void AddFolder(string data)
+        internal bool AddFolder(string data)
         {
-            throw new NotImplementedException();
+            if (fileManager.CreateDirectory(data))
+                return true;
+            else
+                return false;
         }
     }
 }

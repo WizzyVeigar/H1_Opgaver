@@ -26,11 +26,12 @@ namespace Methods_Files
                      "\n" +
                      "Enter your choice: ");
 
+            #region ihavestupidfriends
             //Dennis made this
             //Actually it was Peter
             //int hello = 0;
             //int.TryParse(Console.ReadLine(), out hello);
-
+            #endregion
             //Checks for correct input
             string input;
             while (true)
@@ -66,6 +67,7 @@ namespace Methods_Files
                 case "2":
                     Console.WriteLine("What is the name and extension of the file you want deleted?");
                     data = Console.ReadLine();
+
                     if (controller.DeleteFile(data))
                         Console.WriteLine("File deleted successfully");
                     else
@@ -81,7 +83,13 @@ namespace Methods_Files
                     break;
 
                 case "4":
-                    controller.AddFolder(data);
+                    Console.WriteLine("What is the path of the new folder?");
+                    data = Console.ReadLine();
+
+                    if (controller.AddFolder(data))
+                        Console.WriteLine("Directory created successfully");
+                    else
+                        Console.WriteLine("Something went wrong, check if you typed everything correctly");
                     break;
 
                 case "5":
