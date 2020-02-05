@@ -9,12 +9,12 @@ namespace Methods_Files
 {
     class FileManager
     {
-        private string path;
+        private string path = Directory.GetCurrentDirectory();
 
         public string Path
         {
             get { return path; }
-            set { path = @".\"; }
+            set { path = value; }
         }
 
         /// <summary>
@@ -73,10 +73,26 @@ namespace Methods_Files
         }
 
         /// <summary>
-        /// Reads all files in /bin/debug
+        /// Reads all files in chosen directory with <paramref name="directory"/> 
         /// </summary>
         /// <returns>returns all found files</returns>
-        public List<string> ReadFilesInDirectory()
+        public List<string> ReadAllFiles(string directory)
+        {
+            List<string> files = new List<string>();
+
+            //foreach (string file in Directory.GetFiles(Path))
+            foreach (string file in Directory.GetFiles(Environment.CurrentDirectory + directory))
+            { 
+                files.Add(file);
+            }
+            return files;
+        }
+
+        /// <summary>
+        /// Reads all files in base directory 
+        /// </summary>
+        /// <returns>returns all found files</returns>
+        public List<string> ReadAllFiles()
         {
             List<string> files = new List<string>();
 

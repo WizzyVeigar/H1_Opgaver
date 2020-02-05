@@ -41,6 +41,7 @@ namespace Methods_Files
                     break;
             }
             StartFunction(input);
+            Console.ReadKey();
         }
 
 
@@ -93,7 +94,15 @@ namespace Methods_Files
                     break;
 
                 case "5":
-                    //controller.SearchFile(data);
+                    Console.WriteLine("What directory do you want to search in?");
+                    string directory = Console.ReadLine();
+
+                    Console.WriteLine("Search for file containing: ");
+                    data = Console.ReadLine();
+                    foreach (string file in controller.SearchForFiles(directory,data))
+                    {
+                        Console.WriteLine(file);
+                    }
                     break;
 
                 case "6":

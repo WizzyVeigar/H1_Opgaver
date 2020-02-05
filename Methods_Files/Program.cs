@@ -15,7 +15,6 @@ namespace Methods_Files
             while (true)
             {
                 menu.StartMenu();
-                Console.ReadKey();
             }
         }
     }
