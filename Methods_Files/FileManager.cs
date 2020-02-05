@@ -75,7 +75,7 @@ namespace Methods_Files
         /// <summary>
         /// Reads all files in chosen directory with <paramref name="directory"/> 
         /// </summary>
-        /// <returns>returns all found files</returns>
+        /// <returns>returns a list containing all found files</returns>
         public List<string> ReadAllFiles(string directory)
         {
             List<string> files = new List<string>();
