@@ -15,7 +15,9 @@ namespace Mozart
         {
             Mozart mozart = new Mozart("Mozart");
             Piano piano = new Piano();
+
             Console.Title = "♪♪♪♪";
+
             mozart.MakeNewSong();
             mozart.Play(piano);
         }
