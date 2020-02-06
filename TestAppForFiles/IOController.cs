@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods_Files
+namespace TestAppForFiles
 {
-    class IOController
+    public class IOController
     {
         FileManager fileManager = new FileManager();
         
@@ -15,16 +15,10 @@ namespace Methods_Files
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="data"></param>
-        internal bool CreateFile(string fileName, string data)
+        internal void CreateFile(string fileName, string data)
         {
-            return fileManager.CreateNewFile(fileName, data);
+            fileManager.CreateNewFile(fileName, data);
         }
-        //Overloaded method of CreateFile() Where you can choose which directory to create your file in
-        internal bool CreateFile(string directory, string fileName, string data)
-        {
-            return fileManager.CreateNewFile(directory, fileName, data);
-        }
-
         /// <summary>
         /// Delete a file given the <paramref name="name"/> of the file
         /// </summary>

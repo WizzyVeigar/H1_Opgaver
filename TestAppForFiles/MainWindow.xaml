@@ -1,0 +1,17 @@
+﻿<Window x:Class="TestAppForFiles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TestAppForFiles.FileManager"
+        xmlns:local="clr-namespace:TestAppForFiles"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Margin="77,74,595,293" Click="Button_Click">Display Files</Button>
+        <Button Margin="77,154,595,213" Click="Button_Create">Create File</Button>
+        <TextBox Margin="38,344,612,30" Name="directoryTxtBox">Hello</TextBox>
+        <TextBox Margin="197,344,453,30" Text="your data" Name="dataTxtBox"/>
+        <ListBox Margin="565,10,10,181" Name="listBoxView" ></ListBox>
+    </Grid>
+</Window>

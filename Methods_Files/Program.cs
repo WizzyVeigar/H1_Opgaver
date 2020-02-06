@@ -10,6 +10,7 @@ namespace Methods_Files
     {
         static void Main(string[] args)
         {
+
             GUIMenu menu = new GUIMenu();                      
 
             while (true)

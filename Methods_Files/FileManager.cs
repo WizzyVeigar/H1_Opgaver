@@ -9,30 +9,47 @@ namespace Methods_Files
 {
     class FileManager
     {
-        private string path = Directory.GetCurrentDirectory();
+        private string dirPath = Directory.GetCurrentDirectory();
 
-        public string Path
+        public string DirPath
         {
-            get { return path; }
-            set { path = value; }
+            get { return dirPath; }
+            set { dirPath = value; }
         }
 
         /// <summary>
-        /// Creates a file from a specified path
+        /// Creates a file from a specified path, while checking for invalid characters
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="data"></param>
-        public void CreateNewFile(string fileName, string data)
+        public bool CreateNewFile(string fileName, string data)
         {
+            if (ContainsInvalidFileChar(fileName))
+            {
+                return false;
+            }
+
             File.WriteAllText(fileName + ".txt", data);
+            return true;
+        }
+
+        internal bool CreateNewFile(string directory, string fileName, string data)
+        {
+            if (ContainsInvalidFileChar(fileName) || ContainsInvalidDirChar(directory))
+            {
+                return false;
+            }
+
+            File.WriteAllText(directory + ".txt" , data);
+            return true;
         }
 
         /// <summary>
         /// Deletes a file from a specified path
         /// </summary>
-        /// <param name="Path"></param>
+        /// <param name="path"></param>
         /// <returns></returns>
-        public bool DeleteFile(string Path)
+        public bool DeleteFile(string path)
         {
             if (File.Exists(path))
             {
@@ -49,9 +66,9 @@ namespace Methods_Files
         /// </summary>
         /// <param name="Path"></param>
         /// <returns></returns>
-        public string ReadFile(string Path)
+        public string ReadFile(string fileName)
         {
-            return File.ReadAllText(Directory.GetCurrentDirectory() + path);
+            return File.ReadAllText(Directory.GetCurrentDirectory() + fileName);
         }
 
         /// <summary>
@@ -61,6 +78,10 @@ namespace Methods_Files
         /// <returns></returns>
         internal bool CreateDirectory(string data)
         {
+            //Checks if the wanted directory has invalid characters
+            if (ContainsInvalidDirChar(data))
+                return false;
+
             //Probably should not write GetCurrentDirectory twice
             if (!Directory.Exists(Directory.GetCurrentDirectory() + data))
             {
@@ -82,7 +103,7 @@ namespace Methods_Files
 
             //foreach (string file in Directory.GetFiles(Path))
             foreach (string file in Directory.GetFiles(Environment.CurrentDirectory + directory))
-            { 
+            {
                 files.Add(file);
             }
             return files;
@@ -102,6 +123,50 @@ namespace Methods_Files
                 files.Add(file);
             }
             return files;
+        }
+
+        /// <summary>
+        /// Checks <paramref name="fileName"/> for invalid characters
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns>Returns true if <paramref name="fileName"/> has forbidden characters, otherwise returns false</returns>
+        public bool ContainsInvalidFileChar(string fileName)
+        {
+            char[] chars = Path.GetInvalidFileNameChars();
+
+            if (string.IsNullOrWhiteSpace(fileName))
+                return true;
+
+            foreach (char item in chars)
+            {
+                if (fileName.Contains(item.ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks <paramref name="dirName"/> for invalid characters
+        /// </summary>
+        /// <param name="dirName"></param>
+        /// <returns>Returns true if <paramref name="dirName"/> contains forbidden characters, otherwise returns false</returns>
+        public bool ContainsInvalidDirChar(string dirName)
+        {
+            char[] chars = Path.GetInvalidPathChars();
+
+            if (string.IsNullOrWhiteSpace(dirName))
+                return true;
+
+            foreach (char item in chars)
+            {
+                if (dirName.Contains(item.ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
